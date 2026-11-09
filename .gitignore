@@ -32,3 +32,49 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 *.log
+
+# 開発リポジトリの追加除外設定
+# Environment / secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+google-services.json
+GoogleService-Info.plist
+*.pem
+*.key
+*.p12
+service-account*.json
+*credentials*.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.coverage
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+.next/
+
+# Local editors / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local simulation outputs
+outputs/
+logs/
+*.log
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm

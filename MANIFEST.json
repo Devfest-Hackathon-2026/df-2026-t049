@@ -1,0 +1,378 @@
+{
+  "package_version": "0.4-mvp-candidate",
+  "text_line_endings": "LF",
+  "files": {
+    ".dockerignore": {
+      "bytes": 135,
+      "sha256": "19a9edafe443cfb35895d750386c706e8be861b91e618cd03cdc10858aa38bb5"
+    },
+    ".gcloudignore": {
+      "bytes": 116,
+      "sha256": "2de09c5cddd12194c6ef60ddc35e6b21d068cd06c495dbc6a2c1b522c59873da"
+    },
+    ".gitattributes": {
+      "bytes": 58,
+      "sha256": "a338c4af4f03395e665823b7818df9779af4be6e51e32ee6f2815a70d2b68aa7"
+    },
+    ".gitignore": {
+      "bytes": 967,
+      "sha256": "9cfbbd8825d7a7d2671354b92da504f9781b15ce2c13236a225e9fd372c0b1cd"
+    },
+    "AGENTS.md": {
+      "bytes": 1999,
+      "sha256": "bb24cb3dc0fd36026a155c3371e643f0755ae22808853f69629545454ce61d99"
+    },
+    "Dockerfile": {
+      "bytes": 413,
+      "sha256": "f6ff9fdcae0d9b83a0a1447d357b46ade301003dab0aabb47ffccf506552b356"
+    },
+    "LICENSE": {
+      "bytes": 1092,
+      "sha256": "e83a5dd3a8b77a5dffa96b9531408dc25fe463e73f50204f697aed065b13a2fd"
+    },
+    "README.md": {
+      "bytes": 10961,
+      "sha256": "29c163c7a1f14e3d217a4fb30ce577fdc45ae5638e7a0b1b4ace28f15ecfd797"
+    },
+    "SUBMISSION-GUIDE.md": {
+      "bytes": 2785,
+      "sha256": "8a8133f4d55a7c941290052876799c76e05b8ad98eb7845d0515e0b7e17377b8"
+    },
+    "docs/01-product-brief.md": {
+      "bytes": 2894,
+      "sha256": "1e2e6476d0b3a9193a5131dc3879098cad6e7676bafd128a232ad314412af93a"
+    },
+    "docs/02-mvp-requirements.md": {
+      "bytes": 3216,
+      "sha256": "caddd9f80c2685d2afb21555ba08fed51d5e1cc9d159a5d103c79acd9b8831d5"
+    },
+    "docs/03-simulation-spec.md": {
+      "bytes": 4467,
+      "sha256": "e3eb8a918401324d846db5c0e561d42a2441a69c856520c481310f650ed82240"
+    },
+    "docs/04-bot-protocol.md": {
+      "bytes": 5462,
+      "sha256": "ac9d824e75224f42cb44facb17d1f1a1e10dfb57860d60f42ae37e2596144e3f"
+    },
+    "docs/05-scoring.md": {
+      "bytes": 4383,
+      "sha256": "80ef29ad93d952078f9e0b7c317a7901e34a28bac9ba6e52e744b4bb9f4743b7"
+    },
+    "docs/06-architecture.md": {
+      "bytes": 3835,
+      "sha256": "530cebc7ca983f3c28c2678a3c838b87be40c3a749492cd5df15345d52ed8f38"
+    },
+    "docs/07-roadmap.md": {
+      "bytes": 2339,
+      "sha256": "ac4a7246e39c4c68379194057aace076416d2e518228629f06c0eb4ec5b3fe6a"
+    },
+    "docs/08-decision-log.md": {
+      "bytes": 14400,
+      "sha256": "9e4a5bb4b0d1d2b42cb47b146df566986fb6cebbfbcb5ac070bf2815be1f4fdf"
+    },
+    "docs/09-pitch-ja.md": {
+      "bytes": 1389,
+      "sha256": "2be364f1bc0566454acdef2e9526a946d994bb6e64d6790d4d3684d35ecc86d6"
+    },
+    "docs/10-test-plan.md": {
+      "bytes": 5101,
+      "sha256": "09e7f34d683b9d6d5d535f324c447c2333c220c8251ae3ccc2b8c4189733e3c1"
+    },
+    "docs/11-risks-and-licenses.md": {
+      "bytes": 2621,
+      "sha256": "a2d341849bc2e0bc0e05237a9838d71777376eba2c51aa1b1ddb86c3df680856"
+    },
+    "docs/12-cli-fixture.md": {
+      "bytes": 2505,
+      "sha256": "5330fe71d0fea4e69f250dd020b1bf5f9501741ad4fea990859ccd92dc68c5ee"
+    },
+    "docs/13-events-scoring.md": {
+      "bytes": 4043,
+      "sha256": "275ea36f9b3b35fc4e4f8f3321cfaba38fbe941d9b7474c533ef266018204368"
+    },
+    "docs/14-visual-frontend.md": {
+      "bytes": 4492,
+      "sha256": "1808b01ad053d6293b85f90b1908ee94cad62e861f666f8b5146fea8f9d98e39"
+    },
+    "docs/15-frontend-map.md": {
+      "bytes": 1901,
+      "sha256": "4e7dce8982aa3c5e3d3b3e5274f15f244ca18a16862b5b342373fb8b7cc9a99c"
+    },
+    "docs/16-deployment.md": {
+      "bytes": 3405,
+      "sha256": "8044169dca6ebac2cf617e1a0b24f331fc845dd666528eabe1e5b7aadd34d8de"
+    },
+    "docs/17-no-code-bot.md": {
+      "bytes": 3034,
+      "sha256": "8535c7c44ccd8bac7833fc0f0caec537fa0f052b226635679dd8a50f9649d3e8"
+    },
+    "docs/18-mvp-acceptance.md": {
+      "bytes": 5590,
+      "sha256": "63986eeb4fa309348d9d076c7593a0735430c0bab33949024c20db458a961861"
+    },
+    "docs/19-submission-draft-ja.md": {
+      "bytes": 5909,
+      "sha256": "036f3da6bcc0cc99bb2d981ba5a0e1381c75052a6cb08e58f4492966190bf56f"
+    },
+    "docs/20-demo-script-ja.md": {
+      "bytes": 4009,
+      "sha256": "87a8200f49a74845405939f07fb2ba1e48059174ed2e22fc889cb793ff10814c"
+    },
+    "docs/21-architecture.md": {
+      "bytes": 3372,
+      "sha256": "c7cf35f6e1f064c4868b3ba2d5f2a02b915d5eb18e02bcb61588b3349210c97f"
+    },
+    "docs/22-asset-inventory.md": {
+      "bytes": 3987,
+      "sha256": "c886c34051c065d8a131204252282f82fb9ae4f5c44d82936632542323deb915"
+    },
+    "docs/23-hourly-league.md": {
+      "bytes": 3065,
+      "sha256": "bb4f6fcf3a95167904efd716b7d32098bbb8c3e19dc6b377222c45d497ed0fa9"
+    },
+    "docs/24-code-bots.md": {
+      "bytes": 3074,
+      "sha256": "4a8e84a0fc0c80bf4c6c19ea8fefc0d923e70aaaec7427dbe737cf6acdcd4fcd"
+    },
+    "docs/25-league-deployment.md": {
+      "bytes": 3512,
+      "sha256": "a7de26cb4d3b171bbf96d5b564d5ac5c89ee3829e83065ebf447933829601315"
+    },
+    "docs/26-frontend-integration-progress.md": {
+      "bytes": 5512,
+      "sha256": "7910876dab32673612a5bbfb358cbc81b9285cd06825d2197e02c04251b30706"
+    },
+    "docs/27-local-league-and-map-layouts.md": {
+      "bytes": 2801,
+      "sha256": "7d690fc1300397d067a0e3c81694b48b378aa53a8f3c067b593725be0009d404"
+    },
+    "docs/28-multi-layout-maps.md": {
+      "bytes": 9150,
+      "sha256": "d268b9604d1f2541a373ad19d1ec9639d65ef17334b0366050b006efb3a7e4cc"
+    },
+    "docs/29-frontend-design-polish.md": {
+      "bytes": 6275,
+      "sha256": "78b3a7a7d8afc01f63c419114186e03a62303d606aa9ca2b184e3b619cd5248a"
+    },
+    "docs/frontend-backend-coordination.md": {
+      "bytes": 8680,
+      "sha256": "4903a94815479d42421f088ef5f435393bc06f2b056050c78541fdfa5f588fd4"
+    },
+    "docs/history/18-mvp-acceptance-before-release.md": {
+      "bytes": 7340,
+      "sha256": "fe6ab9ed195d6e9c70573f5d06f82aab4cbe19801135b21c933ed1fc5fab9ae8"
+    },
+    "docs/history/23-hourly-league-before-release.md": {
+      "bytes": 7673,
+      "sha256": "3da64948122654ab60adadafb3e1f8936c17632e7f309393f61282d3ad46eb88"
+    },
+    "examples/decision_bot.py": {
+      "bytes": 1191,
+      "sha256": "63bcba94e54d90ea545d817114418ac484e3d5311698dfae262125da53893c41"
+    },
+    "examples/fair-strategy.json": {
+      "bytes": 79,
+      "sha256": "2059987e6df37006d7128b1476ceb247449243f6628bbf9af6716e94af637c5d"
+    },
+    "gunicorn.conf.py": {
+      "bytes": 167,
+      "sha256": "24e6122db8c5574975fc18258b48305f5cd8f74e3439690661d8fd5a7829ba91"
+    },
+    "reliefroute/__init__.py": {
+      "bytes": 53,
+      "sha256": "4a68d0c6d25e7a1e9329bcf78f9b7fe602269a411893753f6d39a32f02e34e05"
+    },
+    "reliefroute/__main__.py": {
+      "bytes": 3778,
+      "sha256": "20fc0e942463bf49c9033883c389b287a80b697a4150218eaf7dfe399ee68eee"
+    },
+    "reliefroute/bots.py": {
+      "bytes": 3605,
+      "sha256": "b881fc944e210258da5a718fcb02da045f55f571b0ba511007d2f06fbe909b16"
+    },
+    "reliefroute/engine.py": {
+      "bytes": 8912,
+      "sha256": "69d68ca81ba32dbca4a3626afb693d80e44718cc11f094c026f8a25da3ed15cf"
+    },
+    "reliefroute/events.py": {
+      "bytes": 2186,
+      "sha256": "d1c42973aaf87b7cf37473254d37a4b0ff8f0e6428b6230bbbb931098e5b29e7"
+    },
+    "reliefroute/league.py": {
+      "bytes": 9616,
+      "sha256": "99f127da66d627a6a0d5272c67482d33b1660f9488fe803a400166db8a196a99"
+    },
+    "reliefroute/league_api.py": {
+      "bytes": 3436,
+      "sha256": "3f4510efa048f138e848eb73d28371268b28e151a7e662ef2139419c965b9ece"
+    },
+    "reliefroute/league_job.py": {
+      "bytes": 576,
+      "sha256": "b634ff9d3293f0bfcd4a1020304d883d74b7ee19aa6a922598a22246b58d21fb"
+    },
+    "reliefroute/league_store.py": {
+      "bytes": 4464,
+      "sha256": "ec24db7c7c9454af99f29598d68e4c821ea95e4d4491fe5f29bfdf486d88c21c"
+    },
+    "reliefroute/local_startup.py": {
+      "bytes": 770,
+      "sha256": "156c21dddeeeedc0889bb6109ae4e0f688b200dfc4a470f86b4b8e687379fee4"
+    },
+    "reliefroute/program_bot.py": {
+      "bytes": 10221,
+      "sha256": "bc7ca9e9a661f24bfa9431d148d8730c899939b1dfd87ddb588471b44d0367e8"
+    },
+    "reliefroute/scenario.py": {
+      "bytes": 4904,
+      "sha256": "9728f3dfca85162039eb44903b5234c5f4bbde955c3ebe4834fc75ecac7e18c0"
+    },
+    "reliefroute/scoring.py": {
+      "bytes": 2242,
+      "sha256": "9c720e9e5f6ce9d64bbe7c464d27fcf0a7fd37a9ad60124d3ff6e4d7ef207156"
+    },
+    "reliefroute/server.py": {
+      "bytes": 6867,
+      "sha256": "fab79b520348980774dea0a4d955474893ab302bc0995ec70099b2d838a5c0ac"
+    },
+    "reliefroute/wsgi.py": {
+      "bytes": 1814,
+      "sha256": "2c7b5d9c5fabe82c05e4be8e0ee88ebdc745d36d722b8cf3d72c5c1c28430c16"
+    },
+    "requirements.txt": {
+      "bytes": 71,
+      "sha256": "5847dd41fa3f7d5e118060bd0bee109ee21d4f6e17d92779c98826a02b0185a6"
+    },
+    "scripts/deploy_league.py": {
+      "bytes": 5397,
+      "sha256": "f9d8de0412f082ffa8f86f1a71898b6c6febb50255ce118ab08ba4b7da52a795"
+    },
+    "scripts/local_league.py": {
+      "bytes": 1115,
+      "sha256": "831bc159434df2ed2f8b918dc35fab5621f021103bf4c5b241a182f56718248e"
+    },
+    "scripts/manifest.py": {
+      "bytes": 1319,
+      "sha256": "1a466c15b60732ffe997e137f675195047abcbc02141d2790b79f19759000164"
+    },
+    "scripts/smoke.py": {
+      "bytes": 1392,
+      "sha256": "903a06207f7aa60a6c243984a70888b7694d66a168f34db680bf12282b824ddd"
+    },
+    "tests/design_summary.cjs": {
+      "bytes": 940,
+      "sha256": "4a67e30c7d079e7889e3bc23095488c64c8b784e3d53bfb71ba1c94e238018ed"
+    },
+    "tests/frontend_replay.cjs": {
+      "bytes": 2308,
+      "sha256": "81258e6ca6ae9f0bbe374209e5c028b1085dcfabe88b5bd50931c07e0da0cf11"
+    },
+    "tests/language_detection.cjs": {
+      "bytes": 2021,
+      "sha256": "bfeb83e2055f46e8eb6c826608c2ea66e575fde641dfa17e15a0582d6c2ea3fc"
+    },
+    "tests/league_autowatch.cjs": {
+      "bytes": 2229,
+      "sha256": "fdde806b1890c2d5e9ad9987c7287798a2352f70c9a6098d061186cbd028715c"
+    },
+    "tests/league_geometry.cjs": {
+      "bytes": 1130,
+      "sha256": "8f71ffa61f042bebbf7bcb7e1111a396303c8d786f58885da2531490bc1a6959"
+    },
+    "tests/league_interactions.cjs": {
+      "bytes": 2642,
+      "sha256": "32df2980ccfec6f35381ffdb8c31b6834fbd439846fe589ea51a12ace0b2e639"
+    },
+    "tests/map_interactions.cjs": {
+      "bytes": 3943,
+      "sha256": "b8c00141b0aecfb5fec5db22ec98f907f4da2bcc9b7b79e0b1fc23701816b496"
+    },
+    "tests/map_layouts.cjs": {
+      "bytes": 3925,
+      "sha256": "40c69f234807e158cc2bd0899aa0cdf99dd855d7e33645db520f75aae47fbe3d"
+    },
+    "tests/replay_controller.cjs": {
+      "bytes": 855,
+      "sha256": "3909394bb1e7e22c9ddd70556e27c6ca672c8b2518958fbc4a922ff841f328ed"
+    },
+    "tests/test_custom_bot.py": {
+      "bytes": 6173,
+      "sha256": "77116aaf322793c2af3fc0be00aae8fe2bb7332bc030bc5b8885cda70e497830"
+    },
+    "tests/test_deploy_league.py": {
+      "bytes": 2116,
+      "sha256": "abe7da5b745a16246b29751a4eea00b55b6ff7e84ad098fe9cb5506b5bbe360f"
+    },
+    "tests/test_engine.py": {
+      "bytes": 7940,
+      "sha256": "de67c3c7cf7ad2193c5d7b736e887caf48b38a7426c9b31d9791e58d84fa55ee"
+    },
+    "tests/test_events_scoring.py": {
+      "bytes": 11193,
+      "sha256": "d438c4ed23e31a2fa1f554bba3c1929addad105dbe8c1fe3d6bb1cd1b019f683"
+    },
+    "tests/test_i18n.py": {
+      "bytes": 2420,
+      "sha256": "cab4964ef4d61d3b5ace4c7400fc47085746765d70a5a689261fe94e6a4758f8"
+    },
+    "tests/test_league.py": {
+      "bytes": 4259,
+      "sha256": "abb689f1e6ad72a10a426048417522cf40d885cabdf058b44ea23608c055a3d1"
+    },
+    "tests/test_league_api.py": {
+      "bytes": 3796,
+      "sha256": "4ea09505ca341d5a0fbfc4e0398a45d19d955ab5f7408123e22631db515f2299"
+    },
+    "tests/test_league_store.py": {
+      "bytes": 3600,
+      "sha256": "0da17f7831831f21b8f647c512ac5e5b0aea6714f26ba4a541dc4b93555852d1"
+    },
+    "tests/test_local_startup.py": {
+      "bytes": 6051,
+      "sha256": "292b41f2094768d7c0699018c2b5ed03fd6ffefd9766459b860d37b7883856e3"
+    },
+    "tests/test_program_bot.py": {
+      "bytes": 4059,
+      "sha256": "5797a303d7b7187e12886a951e46bbff1c126a1c2095d441ad03a0bcd475d180"
+    },
+    "tests/test_server.py": {
+      "bytes": 3348,
+      "sha256": "c753abf68b46c4d083f5547516d801783c2238f7130f7d56c17d255d96d91cd8"
+    },
+    "web/app.js": {
+      "bytes": 18687,
+      "sha256": "9555cd3ec3f4458cfd16a66a9bf9cc02c0ce84ea15b7cd9cc1aefe6e31aae811"
+    },
+    "web/i18n.js": {
+      "bytes": 35506,
+      "sha256": "a5862da0e8b39af30bbe90e81e14c1ef41903d926b3debad275f3cb09bf48b3c"
+    },
+    "web/index.html": {
+      "bytes": 13802,
+      "sha256": "79831201b8500a4c73771c64eb964a7a3b67a246270503470a09886576b7664b"
+    },
+    "web/league.html": {
+      "bytes": 6267,
+      "sha256": "49ee6b70bfa35e26c2f59ef7e34e5151931ee02e66ec96cbbdff6e15cfd06cd5"
+    },
+    "web/league.js": {
+      "bytes": 25379,
+      "sha256": "cda62d2dd67207f08c3240ca3a39dc0e02e42fb3cac4ec54f0df2c56285a608d"
+    },
+    "web/map-geometry.js": {
+      "bytes": 9334,
+      "sha256": "62319411e730c16ac67d97953adbcaae944d8a49b8be21fd1639bad07899ef76"
+    },
+    "web/map-renderer.js": {
+      "bytes": 15746,
+      "sha256": "2e83626454cb6cae8a040e9685f401b368eabe3224c6d696289f25809ade0399"
+    },
+    "web/replay-controller.js": {
+      "bytes": 752,
+      "sha256": "474b97309ae913a53a0e240a47f4e6fca716d246dcc499488cc1dea910136f51"
+    },
+    "web/style.css": {
+      "bytes": 48268,
+      "sha256": "b101bc15e6c4a25e3b01c7908fb2244aa8a4fa47d380cb2ea3e08558a0096fd6"
+    }
+  }
+}

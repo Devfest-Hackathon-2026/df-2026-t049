@@ -1,0 +1,5 @@
+{
+  "priority_rule": "fair",
+  "load_rule": "full",
+  "dispatch_rule": "any"
+}

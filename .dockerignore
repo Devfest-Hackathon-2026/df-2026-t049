@@ -1,0 +1,11 @@
+*
+!requirements.txt
+!gunicorn.conf.py
+!reliefroute/
+!reliefroute/*.py
+!web/
+!web/*.html
+!web/*.css
+!web/*.js
+!examples/
+!examples/*.py
