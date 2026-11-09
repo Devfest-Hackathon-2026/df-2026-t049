@@ -33,3 +33,29 @@ python scripts/local_league.py --once
 合計 100 Bot の登録制限がありますが、不正な大量登録を防ぐ仕組みではありません。SQLite 直接利用は永続ディスクのあるローカル用です。クラウドでは私有 GCS スナップショットと Job / Scheduler を使用します。旧版の公開 API に既存試合はありますが、候補版の定期実行・IAM・保存検証は次段階です。
 
 [コード Bot](24-code-bots.md) / [クラウド構築](25-league-deployment.md) / [過去の実装記録](history/23-hourly-league-before-release.md)
+
+## DB の準備と Demo の動作
+
+コマンドはリポジトリルートから実行します。macOS / Linux は `python3`、Windows は `python` を使用します。通常の Web 起動は DB と親ディレクトリを初期化しますが、Bot の追加や結算はしません。設定は `--db`、`RELIEFROUTE_LEAGUE_DB`、`outputs/local-league.sqlite3` の順に優先し、相対パスは作業ディレクトリ基準です。
+
+```bash
+python -m reliefroute.server --db outputs/my-league.sqlite3 --port 8002
+# 別ターミナルで、必ず同じ DB を指定する
+python scripts/local_league.py --once --db outputs/my-league.sqlite3
+# 独立した試用 DB にサンプルを作り、8016 番で Web を開く
+python scripts/local_league.py --demo --db outputs/demo.sqlite3 --port 8016
+```
+
+Demo は Bot が一つも存在しない DB に限り `Local demo nearest` と `Local demo urgency` を登録し、現在の UTC 時間帯を結算します。サンプルだけを前の時間帯の登録として扱い、直ちに比較できるようにします。既存の利用者 Bot を早期参加させる処理ではありません。同じ時間帯が既に完了していれば再加点しません。Demo の Bot は管理トークンを発行しない参照用 Bot です。
+
+`--once` は結算後に終了し、未来の時間帯へ進めません。Demo サーバーを起動したままにしても、そのプロセスだけでは翌時間帯の結算をしません。継続 worker を使う場合は、先に Web または上記コマンドで DB を初期化し、同じパスで `python -m reliefroute.league --db outputs/my-league.sqlite3` を別途起動します。終了は Ctrl+C。各入口を複数起動して結算回数を増やす必要はありません。
+
+ローカルの Web と `scripts/local_league.py` は継承した Bucket 設定を無視します。直接起動する SQLite worker も指定したローカル DB を扱います。本番の `league_job` や構築スクリプトをローカル練習用に実行しないでください。
+
+## 管理トークンとよくある状況
+
+- Web 登録で得る Bot ID と管理トークンは停止・再開用です。トークンは再取得できず、サーバーは検証用ハッシュを保存します。共有資料、Git、スクリーンショットに含めません。
+- 停止は Bot 削除や過去結果の削除ではありません。再開した Bot は次の時間帯から参加します。
+- 登録直後に結果がない場合は、次の UTC 時間帯と結算処理の実行を確認します。表示時刻は JST と UTC を区別します。
+- 別ターミナルで結果が見えない場合は、両方の出力に表示される絶対 DB パスを照合します。
+- 古い完全リプレイの 404 は保存範囲によるものです。要約の保存と全ラウンドの動画的再生は別機能です。

@@ -64,15 +64,27 @@ Python 3.9 以上を用意してください（今回の検証は Python 3.13）
 
 リポジトリのルートで実行します。Windows は `python`、macOS/Linux では必要に応じて `python3` を使用してください。
 
+macOS / Linux:
+
 ```bash
+python3 -m reliefroute.server
+```
+
+Windows PowerShell:
+
+```powershell
 python -m reliefroute.server
 ```
 
+以下の例は `python` 表記です。macOS / Linux ではインストール済みの Python 3 を指す `python3` に読み替えてください。
+
 - アリーナ: http://127.0.0.1:8000/
 - リーグ: http://127.0.0.1:8000/league
-- 終了: Ctrl+C。ポート変更は `--port 8002`。
+- 既定の待受けは `127.0.0.1:8000` のみ。終了は Ctrl+C。
+- ポート変更: `python -m reliefroute.server --port 8002`。その場合は上記 URL の `8000` を `8002` に変更します。
+- 初回は日本語。選択言語は同一オリジンの `localStorage`（`reliefroute.language`）に保存し、更新・ページ移動後も優先します。別ポートや別ドメインは別設定です。保存できない環境ではそのページ内で切り替えられます。
 
-SQLite は `outputs/local-league.sqlite3` に保存されます。指定優先度は `--db`、`RELIEFROUTE_LEAGUE_DB`、既定パスの順です。相対パスは起動ディレクトリが基準です。ローカル入口は継承した `RELIEFROUTE_LEAGUE_BUCKET` を無視します。
+初回起動で必要なディレクトリと SQLite のテーブルを自動初期化します。SQLite は `outputs/local-league.sqlite3` に保存され、再起動後も Bot・順位ポイント・結果を保持します。空の順位表は正常な初期状態です。指定優先度は `--db`、`RELIEFROUTE_LEAGUE_DB`、既定パスの順です。相対パスは起動ディレクトリが基準です。ローカル入口は継承した `RELIEFROUTE_LEAGUE_BUCKET` を無視します。
 
 通常起動は Bot 登録・対戦結算・定期実行を行いません。別ターミナルで `python scripts/local_league.py --once` を実行すると現在の UTC 時間帯を一度結算します。新規・再開 Bot は次の時間帯から参加します。別の DB を使う場合は両コマンドに同じ `--db` を指定してください。
 
@@ -80,6 +92,8 @@ SQLite は `outputs/local-league.sqlite3` に保存されます。指定優先�
 # 独立した試用データでデモ Bot と最初の対戦を用意する
 python scripts/local_league.py --demo --db outputs/demo.sqlite3 --port 8016
 ```
+
+カスタム DB の例: `python -m reliefroute.server --db outputs/my-league.sqlite3`。上の Demo は http://127.0.0.1:8016/league で開けます。Demo の登録条件、同一時間帯の再実行、継続 worker は [リーグ利用ガイド](docs/23-hourly-league.md)を参照してください。
 
 ## デプロイ構成
 
@@ -94,6 +108,25 @@ Cloud Run Service と Job が同じイメージ digest と私有 Cloud Storage �
 5. コード Bot はサンプルから作成します。変更は新規 Bot 登録となり、順位ポイントを引き継ぎません。
 
 詳細: [リーグ利用ガイド](docs/23-hourly-league.md) / [コード Bot](docs/24-code-bots.md)。
+
+## CLI による実行・記録・再採点
+
+```bash
+# イベントのない回帰用シナリオ
+python -m reliefroute
+# イベントあり、固定 seed、JSON 記録の保存
+python -m reliefroute --scenario events --seed 11 --bot urgency --output outputs/match.json
+# 完全な試合記録から再採点（保存済み score は使用しない）
+python -m reliefroute --rescore outputs/match.json
+# 参考 Bot 2 種 × seed 11/22/33 の6試合
+python -m reliefroute --compare --output outputs/comparison.json
+# パラメーター戦略を加えた3戦略・9試合
+python -m reliefroute --compare --config examples/fair-strategy.json
+python -m reliefroute --scenario events --seed 22 --bot custom --config examples/fair-strategy.json --output outputs/custom.json
+python -m reliefroute --rescore outputs/custom.json
+```
+
+`--output` は親ディレクトリも作成します。比較レポート全体は単一試合のリプレイではないため `--rescore` に渡しません。再採点は信頼できる完全なエンジン記録の検証用であり、改ざんされた外部提出の真正性を保証しません。[エンジン・採点・リプレイの技術ガイド](docs/30-technical-guide-ja.md)に記録形式と制限をまとめています。
 
 ## テスト・検証
 
@@ -142,3 +175,17 @@ python scripts/manifest.py --check
 ## 公式提出リポジトリ
 
 運営の提出案内は [SUBMISSION-GUIDE.md](SUBMISSION-GUIDE.md) に保持しています。このリポジトリでは GitHub Actions / Pages を使用しません。回帰テストはローカルで実行します。
+
+## 詳細文書の案内
+
+| 読みたい内容 | 文書 |
+| --- | --- |
+| 現行エンジン、Bot 契約、採点式、地図とリプレイ | [技術ガイド](docs/30-technical-guide-ja.md) |
+| DB、Demo、手動結算、管理トークン | [時間別リーグ](docs/23-hourly-league.md) |
+| コード例と制限付き言語 | [コード Bot](docs/24-code-bots.md) |
+| モジュールと永続化 | [構成](docs/21-architecture.md) |
+| ローカルと本番、検証手順 | [デプロイ](docs/16-deployment.md) / [リーグ運用](docs/25-league-deployment.md) |
+| 実測結果・未完了事項 | [受入記録](docs/18-mvp-acceptance.md) |
+| 第三者ライセンス | [依存・素材一覧](docs/22-asset-inventory.md) |
+
+初期設計と中国語の開発記録も保持しています。現行仕様との対応と読む際の注意は技術ガイド末尾に記載しています。

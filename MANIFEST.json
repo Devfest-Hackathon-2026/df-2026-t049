@@ -31,8 +31,8 @@
       "sha256": "e83a5dd3a8b77a5dffa96b9531408dc25fe463e73f50204f697aed065b13a2fd"
     },
     "README.md": {
-      "bytes": 10961,
-      "sha256": "29c163c7a1f14e3d217a4fb30ce577fdc45ae5638e7a0b1b4ace28f15ecfd797"
+      "bytes": 14329,
+      "sha256": "8c5bbfba488e813f7b220a5f7d5897427fd0f39373db33d7e0548a65267ba1b2"
     },
     "SUBMISSION-GUIDE.md": {
       "bytes": 2785,
@@ -99,44 +99,44 @@
       "sha256": "4e7dce8982aa3c5e3d3b3e5274f15f244ca18a16862b5b342373fb8b7cc9a99c"
     },
     "docs/16-deployment.md": {
-      "bytes": 3405,
-      "sha256": "8044169dca6ebac2cf617e1a0b24f331fc845dd666528eabe1e5b7aadd34d8de"
+      "bytes": 4379,
+      "sha256": "ae7647b4e0d51b95b4971cc8ec0ce276e65864159d3dd717a7fdc55f398b2aaf"
     },
     "docs/17-no-code-bot.md": {
       "bytes": 3034,
       "sha256": "8535c7c44ccd8bac7833fc0f0caec537fa0f052b226635679dd8a50f9649d3e8"
     },
     "docs/18-mvp-acceptance.md": {
-      "bytes": 5590,
-      "sha256": "63986eeb4fa309348d9d076c7593a0735430c0bab33949024c20db458a961861"
+      "bytes": 7449,
+      "sha256": "388fcb0fffe0575aedd049afbde29f4fbf37d70713d140b71f67ef0e5576b69b"
     },
     "docs/19-submission-draft-ja.md": {
-      "bytes": 5909,
-      "sha256": "036f3da6bcc0cc99bb2d981ba5a0e1381c75052a6cb08e58f4492966190bf56f"
+      "bytes": 6022,
+      "sha256": "f613dbaff2e29b0be8780daf672ad95f133ca7152f66b759b7dbce01b650afa6"
     },
     "docs/20-demo-script-ja.md": {
       "bytes": 4009,
       "sha256": "87a8200f49a74845405939f07fb2ba1e48059174ed2e22fc889cb793ff10814c"
     },
     "docs/21-architecture.md": {
-      "bytes": 3372,
-      "sha256": "c7cf35f6e1f064c4868b3ba2d5f2a02b915d5eb18e02bcb61588b3349210c97f"
+      "bytes": 4153,
+      "sha256": "2bef6248a72c7565835168650293a93fb0325ccbb56691eb7a7173229eda223e"
     },
     "docs/22-asset-inventory.md": {
       "bytes": 3987,
       "sha256": "c886c34051c065d8a131204252282f82fb9ae4f5c44d82936632542323deb915"
     },
     "docs/23-hourly-league.md": {
-      "bytes": 3065,
-      "sha256": "bb4f6fcf3a95167904efd716b7d32098bbb8c3e19dc6b377222c45d497ed0fa9"
+      "bytes": 6004,
+      "sha256": "2db6cf1699d46bf9bc97231566761ca273b9386288ad41aeb44545a5e8c07b3c"
     },
     "docs/24-code-bots.md": {
-      "bytes": 3074,
-      "sha256": "4a8e84a0fc0c80bf4c6c19ea8fefc0d923e70aaaec7427dbe737cf6acdcd4fcd"
+      "bytes": 3662,
+      "sha256": "f77a6d12da8b3864d4c1fe6e350b6d2cd19410e3025f80a02840d0644465c04f"
     },
     "docs/25-league-deployment.md": {
-      "bytes": 3512,
-      "sha256": "a7de26cb4d3b171bbf96d5b564d5ac5c89ee3829e83065ebf447933829601315"
+      "bytes": 4704,
+      "sha256": "7be8535d7004cd08892ef8a0cdd1b7a548be095045726d3bac4404b9823b560a"
     },
     "docs/26-frontend-integration-progress.md": {
       "bytes": 5512,
@@ -153,6 +153,10 @@
     "docs/29-frontend-design-polish.md": {
       "bytes": 6275,
       "sha256": "78b3a7a7d8afc01f63c419114186e03a62303d606aa9ca2b184e3b619cd5248a"
+    },
+    "docs/30-technical-guide-ja.md": {
+      "bytes": 8978,
+      "sha256": "415e814cb5a414eb321b95635c6b6d55c018ee080215918834eaad65679ef6d8"
     },
     "docs/frontend-backend-coordination.md": {
       "bytes": 8680,

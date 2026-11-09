@@ -37,3 +37,15 @@ WSGI で両ストレージ変数がない場合、リーグ API は 503 を返�
 期限前に課金・クレジット、権限、定期処理、保存、公開アクセスを確認します。予算通知や最大インスタンス数は課金上限保証ではありません。公式提出先では Actions と Pages を利用できないため、開発側で検証します。
 
 [公式ルール](https://docs.google.com/document/d/1r2QRvMQbcJqhmYAEKAFTN9Co_zsJzvFhxfuS1wx1FJE/edit) / [Cloud Run コンテナー契約](https://docs.cloud.google.com/run/docs/container-contract)
+
+## ローカル HTTP の確認
+
+```bash
+python -m reliefroute.server --db outputs/check.sqlite3 --port 8002
+# 別ターミナル。既存のローカルサーバーに対して実行
+python scripts/smoke.py http://127.0.0.1:8002
+```
+
+`smoke.py` は健康状態、固定静的資源、模擬試合と比較を確認します。リーグの定期実行や保存を証明するものではありません。ブラウザーでは戦略変更、試合実行、タイムライン移動、比較結果からの再生、JSON 保存、三言語と狭い画面を別途確認します。
+
+本番の Gunicorn 設定・Dockerfile は保持していますが、本輪ではコンテナー構築やクラウド操作を実施していません。旧資料の 512 MiB / 30 秒という初期デプロイ例は現行の設定と異なるため復元していません。最終イメージの構築と Service/Job の更新は、費用と実設定を確認する段階で実行します。

@@ -42,3 +42,11 @@ python3 scripts/deploy_league.py YOUR_PROJECT_ID --region asia-northeast1
 クラウドスナップショットは gzip 保存、解凍上限 128 MiB、generation による競合検出を行います。古い非対応イメージへの巻き戻しは避けます。Bucket の soft delete 等の保持設定は、画面上のリプレイ保持範囲とは別です。
 
 [定時 Job 実行](https://docs.cloud.google.com/run/docs/execute/jobs-on-schedule) / [デプロイ・凍結](16-deployment.md)
+
+## 既存環境を更新する場合
+
+構築スクリプトは IAM、API、Scheduler の更新と即時 Job 実行まで含みます。既存サービスの文書確認や通常のバージョン更新のために無条件で再実行しません。現行環境変数・実行用サービスアカウント・Bucket を読み取り、同じ最終イメージ digest を Service と Job に指定して既存データを維持する手順を別途確認します。
+
+新規登録後は既存 Scheduler の次の整点を待ち、その実行ログと結果を照合します。重複結算防止の試験はローカルの隔離 DB で行えます。本番を何度も手動実行したり、保存確認のためにデータを消したりする必要はありません。
+
+2026-11-09 の第三段階 A では旧版の単一 Scheduler（UTC 毎正時）、Job 成功記録、非公開 Bucket を確認しました。これは最終候補版のデプロイ証拠ではありません。同時点の Service は 1 CPU / 1 GiB、min 0 / max 3、並行数 2、120 秒で、上記スクリプトの max 2 と異なります。現行設定をスクリプトから推定しないでください。
