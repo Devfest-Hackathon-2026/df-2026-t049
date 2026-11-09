@@ -14,7 +14,7 @@
 
 ## リプレイと保存範囲
 
-最新の完了ラウンドは各 Bot の完全リプレイを保存します。次の結算で古い完全リプレイを消し、結果の要約とポイント変動を保持します。期限切れリプレイは 404 になります。全履歴をブラウザーから再生する機能はありません。
+最新の完了ラウンドは各 Bot の完全リプレイを保存します。次の集計で古い完全リプレイを消し、結果の要約とポイント変動を保持します。期限切れリプレイは 404 になります。全履歴をブラウザーから再生する機能はありません。
 
 再生画面は計算済み記録です。実車の位置情報や現実の救援活動ではありません。最終スコアと、再生中のターンの状態を区別して表示します。
 
@@ -22,11 +22,11 @@
 
 ```bash
 python -m reliefroute.server
-# 別ターミナルで現在の時間帯を一度結算
+# 別ターミナルで現在の時間帯を一度集計
 python scripts/local_league.py --once
 ```
 
-既定 DB は `outputs/local-league.sqlite3`。変更時は両プロセスに同じ `--db` を指定します。通常起動は定期結算を始めません。継続実行が必要な場合は別プロセスで `python -m reliefroute.league --db outputs/local-league.sqlite3` を実行します。停止期間の過去ラウンドは補完せず現在の時間帯を処理します。
+既定 DB は `outputs/local-league.sqlite3`。変更時は両プロセスに同じ `--db` を指定します。通常起動は定期集計を始めません。継続実行が必要な場合は別プロセスで `python -m reliefroute.league --db outputs/local-league.sqlite3` を実行します。停止期間の過去ラウンドは補完せず現在の時間帯を処理します。
 
 ## 運用上の制約
 
@@ -36,7 +36,7 @@ python scripts/local_league.py --once
 
 ## DB の準備と Demo の動作
 
-コマンドはリポジトリルートから実行します。macOS / Linux は `python3`、Windows は `python` を使用します。通常の Web 起動は DB と親ディレクトリを初期化しますが、Bot の追加や結算はしません。設定は `--db`、`RELIEFROUTE_LEAGUE_DB`、`outputs/local-league.sqlite3` の順に優先し、相対パスは作業ディレクトリ基準です。
+コマンドはリポジトリルートから実行します。macOS / Linux は `python3`、Windows は `python` を使用します。通常の Web 起動は DB と親ディレクトリを初期化しますが、Bot の追加や集計はしません。設定は `--db`、`RELIEFROUTE_LEAGUE_DB`、`outputs/local-league.sqlite3` の順に優先し、相対パスは作業ディレクトリ基準です。
 
 ```bash
 python -m reliefroute.server --db outputs/my-league.sqlite3 --port 8002
@@ -46,9 +46,9 @@ python scripts/local_league.py --once --db outputs/my-league.sqlite3
 python scripts/local_league.py --demo --db outputs/demo.sqlite3 --port 8016
 ```
 
-Demo は Bot が一つも存在しない DB に限り `Local demo nearest` と `Local demo urgency` を登録し、現在の UTC 時間帯を結算します。サンプルだけを前の時間帯の登録として扱い、直ちに比較できるようにします。既存の利用者 Bot を早期参加させる処理ではありません。同じ時間帯が既に完了していれば再加点しません。Demo の Bot は管理トークンを発行しない参照用 Bot です。
+Demo は Bot が一つも存在しない DB に限り `Local demo nearest` と `Local demo urgency` を登録し、現在の UTC 時間帯を集計します。サンプルだけを前の時間帯の登録として扱い、直ちに比較できるようにします。既存の利用者 Bot を早期参加させる処理ではありません。同じ時間帯が既に完了していれば再加点しません。Demo の Bot は管理トークンを発行しない参照用 Bot です。
 
-`--once` は結算後に終了し、未来の時間帯へ進めません。Demo サーバーを起動したままにしても、そのプロセスだけでは翌時間帯の結算をしません。継続 worker を使う場合は、先に Web または上記コマンドで DB を初期化し、同じパスで `python -m reliefroute.league --db outputs/my-league.sqlite3` を別途起動します。終了は Ctrl+C。各入口を複数起動して結算回数を増やす必要はありません。
+`--once` は集計後に終了し、未来の時間帯へ進めません。Demo サーバーを起動したままにしても、そのプロセスだけでは翌時間帯の集計をしません。継続 worker を使う場合は、先に Web または上記コマンドで DB を初期化し、同じパスで `python -m reliefroute.league --db outputs/my-league.sqlite3` を別途起動します。終了は Ctrl+C。各入口を複数起動して集計回数を増やす必要はありません。
 
 ローカルの Web と `scripts/local_league.py` は継承した Bucket 設定を無視します。直接起動する SQLite worker も指定したローカル DB を扱います。本番の `league_job` や構築スクリプトをローカル練習用に実行しないでください。
 
@@ -56,6 +56,6 @@ Demo は Bot が一つも存在しない DB に限り `Local demo nearest` と `
 
 - Web 登録で得る Bot ID と管理トークンは停止・再開用です。トークンは再取得できず、サーバーは検証用ハッシュを保存します。共有資料、Git、スクリーンショットに含めません。
 - 停止は Bot 削除や過去結果の削除ではありません。再開した Bot は次の時間帯から参加します。
-- 登録直後に結果がない場合は、次の UTC 時間帯と結算処理の実行を確認します。表示時刻は JST と UTC を区別します。
+- 登録直後に結果がない場合は、次の UTC 時間帯と集計処理の実行を確認します。表示時刻は JST と UTC を区別します。
 - 別ターミナルで結果が見えない場合は、両方の出力に表示される絶対 DB パスを照合します。
 - 古い完全リプレイの 404 は保存範囲によるものです。要約の保存と全ラウンドの動画的再生は別機能です。

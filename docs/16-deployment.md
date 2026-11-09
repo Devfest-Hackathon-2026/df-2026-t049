@@ -8,7 +8,7 @@
 
 ## ローカルと本番の違い
 
-- ローカル: `python -m reliefroute.server`。ループバックアドレスのみ、SQLite を初期化。定期結算は別プロセスです。
+- ローカル: `python -m reliefroute.server`。ループバックアドレスのみ、SQLite を初期化。定期集計は別プロセスです。
 - 本番: `gunicorn --config gunicorn.conf.py reliefroute.wsgi:application`。`0.0.0.0:$PORT` で待受け、非 root のコンテナーを実行します。
 - Cloud Run Service はページ、API、模擬配送と採点を提供します。
 - Cloud Run Job は `python -m reliefroute.league_job` を実行し、Scheduler が UTC 毎正時に起動します。
@@ -26,9 +26,9 @@ WSGI で両ストレージ変数がない場合、リーグ API は 503 を返�
 
 ## 構築と検証
 
-実際にリソースを作成・更新する手順は[リーグ構築](25-league-deployment.md)に一本化します。単に Service だけをデプロイしても定期結算と永続化は完成しません。今回の整理段階では構築スクリプトを実行していません。
+実際にリソースを作成・更新する手順は[リーグ構築](25-league-deployment.md)に一本化します。単に Service だけをデプロイしても定期集計と永続化は完成しません。今回の整理段階では構築スクリプトを実行していません。
 
-次段階で最終 Git SHA、イメージ digest、Service revision、Job のイメージ、Scheduler 設定、Bucket/IAM、実行時刻を記録します。公開 GET の成功だけでは自動結算や再起動後の保存を検証したことになりません。
+次段階で最終 Git SHA、イメージ digest、Service revision、Job のイメージ、Scheduler 設定、Bucket/IAM、実行時刻を記録します。公開 GET の成功だけでは自動集計や再起動後の保存を検証したことになりません。
 
 ## 提出と凍結
 

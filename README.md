@@ -86,7 +86,7 @@ python -m reliefroute.server
 
 初回起動で必要なディレクトリと SQLite のテーブルを自動初期化します。SQLite は `outputs/local-league.sqlite3` に保存され、再起動後も Bot・順位ポイント・結果を保持します。空の順位表は正常な初期状態です。指定優先度は `--db`、`RELIEFROUTE_LEAGUE_DB`、既定パスの順です。相対パスは起動ディレクトリが基準です。ローカル入口は継承した `RELIEFROUTE_LEAGUE_BUCKET` を無視します。
 
-通常起動は Bot 登録・対戦結算・定期実行を行いません。別ターミナルで `python scripts/local_league.py --once` を実行すると現在の UTC 時間帯を一度結算します。新規・再開 Bot は次の時間帯から参加します。別の DB を使う場合は両コマンドに同じ `--db` を指定してください。
+通常起動は Bot 登録・対戦集計・定期実行を行いません。別ターミナルで `python scripts/local_league.py --once` を実行すると現在の UTC 時間帯を一度集計します。新規・再開 Bot は次の時間帯から参加します。別の DB を使う場合は両コマンドに同じ `--db` を指定してください。
 
 ```bash
 # 独立した試用データでデモ Bot と最初の対戦を用意する
@@ -104,7 +104,7 @@ Cloud Run Service と Job が同じイメージ digest と私有 Cloud Storage �
 1. アリーナでシナリオ、seed、Bot または三つの戦略パラメーターを選び、試合を実行します。
 2. 最終スコアと配送統計を確認し、リプレイで各ターンの状態を振り返ります。最終スコアは再生位置の途中スコアではありません。
 3. 戦略比較で九つの結果を確認し、結果から対応する試合を再生します。JSON は保存・再採点できます。
-4. リーグでは Bot を登録し、一度だけ表示される管理トークンを私的に保存します。次の時間帯の結算後、順位と試合を確認します。
+4. リーグでは Bot を登録し、一度だけ表示される管理トークンを私的に保存します。次の時間帯の集計後、順位と試合を確認します。
 5. コード Bot はサンプルから作成します。変更は新規 Bot 登録となり、順位ポイントを引き継ぎません。
 
 詳細: [リーグ利用ガイド](docs/23-hourly-league.md) / [コード Bot](docs/24-code-bots.md)。
@@ -181,7 +181,7 @@ python scripts/manifest.py --check
 | 読みたい内容 | 文書 |
 | --- | --- |
 | 現行エンジン、Bot 契約、採点式、地図とリプレイ | [技術ガイド](docs/30-technical-guide-ja.md) |
-| DB、Demo、手動結算、管理トークン | [時間別リーグ](docs/23-hourly-league.md) |
+| DB、Demo、手動集計、管理トークン | [時間別リーグ](docs/23-hourly-league.md) |
 | コード例と制限付き言語 | [コード Bot](docs/24-code-bots.md) |
 | モジュールと永続化 | [構成](docs/21-architecture.md) |
 | ローカルと本番、検証手順 | [デプロイ](docs/16-deployment.md) / [リーグ運用](docs/25-league-deployment.md) |
